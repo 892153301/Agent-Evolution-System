@@ -12,6 +12,14 @@
 
 ## 2026-03-28
 
+### [INC-20260328-005] 心跳机制改进 — compaction.memoryFlush 改造
+- **日期**: 2026-03-28
+- **改动**: 将 `compaction.memoryFlush` 从静默内存写入改为执行心跳检查
+- **原因**: 原心跳依赖 session 存活，session 断开后心跳发不出去；用户希望在上下文被清理后能立即在当前 session 执行心跳
+- **配置变更**: `compaction.memoryFlush.prompt` → "执行心跳检查：读 HEARTBEAT.md → 按清单检查 → 发报告到当前 session（如无异常回复 HEARTBEAT_OK）"
+- **风险**: compaction 触发时机不确定（由上下文大小决定），可能导致心跳报告在任何时候出现；如发现严重影响可回滚
+- **状态**: ✅ 验证通过
+
 ### [INC-20260328-001] 部署混淆 — video-pipeline 误部署到 aigcmd.com
 - **触发**: 用户说"同步到我的 aigcmd.com"
 - **我的错误行为**: 直接部署了 video-pipeline（漫剧工坊工具）到 aigcmd.com（影视工坊展示站）
