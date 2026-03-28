@@ -86,6 +86,19 @@
 
 ---
 
+## 系统维护
+
+### [P-008] Incidents 归档规则
+- **触发条件**: 心跳检查时
+- **原则**:
+  - 已关闭 + 创建时间超过 15 天 → 移动到 `incidents/YYYY-MM.md`
+  - 降级（degraded）的 incidents → 永久保留，不归档
+  - 归档不影响 principles 的触发（归档的是 incidents，不是 principles）
+- **来源**: 2026-03-28 用户要求"需要长时间的验证，查看 token 消耗程度"
+- **状态**: new
+
+---
+
 ## 项目管理
 
 ### [P-007] 两个 aigcmd 项目区分
