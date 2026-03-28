@@ -41,7 +41,7 @@ Heartbeat 每4小时 → 后台双重保险
 | `memory/日志/YYYY-MM-DD.md` | 每日摘要，上下文恢复用 |
 | `HEARTBEAT.md` | 心跳检查逻辑，每4小时执行 |
 | `AGENTS.md` | Session 启动流程配置 |
-| `PRESENTATION.md` | 完整演讲稿+PPT大纲 |
+| `SOUL.md` / `USER.md` | AI 身份与用户信息 |
 
 ---
 
